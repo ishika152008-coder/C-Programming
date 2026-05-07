@@ -1,29 +1,30 @@
 #include<stdio.h>
-int main(){
 
-    //input size of array.
-    int n;
-    scanf("%d",&n);
-
-    //input array .
-    int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-
-    //reverse an array.
+void reverse(int *a, int n) {
     int temp = 0;
+    int *ptr = a;
+    int *b = a+n-1;
     for(int i=0;i<n/2;i++){
-        temp = arr[i];
-        arr[i] = arr[n-i-1];
-        arr[n-i-1] = temp;
+        temp = *ptr ;
+        *ptr = *b;
+        *b = temp;
+        ptr ++;
+        b--;
     }
+}
 
-    //print reversed array.
-    for(int i=0;i<n;i++){
-        printf("%d ",arr[i]);
-    }
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int arr[100];
+    for(int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    reverse(arr, n);
+
+    for(int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
 
     return 0;
-
 }
