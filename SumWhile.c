@@ -5,15 +5,15 @@ int main(){
     int n;
     scanf("%d",&n);
 
-    int rev = 0;
+    int sum = 0;
 
-    do{
+    while(n>0){
         int quo = n % 10;
-        rev = rev*10 + quo;
+        sum = sum + quo;
         n = n / 10;
-    }while(n>0);
-
-    printf("%d",rev);
+    }
+     
+    printf("%d",sum);
 
     return 0;
 }
